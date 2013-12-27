@@ -23,18 +23,17 @@
     <div class="container">
         <div id="todo-form" class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control input-lg text-center" placeholder="What do you need to do?" ng-model="formData.text">
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
-                </form>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="What do you need to do?" ng-model="formData.text">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="createTodo()">Add</button>
+                    </span>
+                </div>
             </div>
         </div>
 
         <div id="todos" class="row">
-            <div class="col-sm-4 col-sm-offset-4">
+            <div class="col-sm-8 col-sm-offset-2">
                 <div class="list-group">
                     <div class="todo checkbox list-group-item" ng-repeat="todo in todos | orderBy:'done' | orderBy:'finished':true">
                         <label>
