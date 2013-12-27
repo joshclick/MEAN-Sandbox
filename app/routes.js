@@ -40,9 +40,10 @@ module.exports = function(app) {
     });
 
     app.post('/api/todos/fin/:todo_id', function(req, res) {
-        Todo.update({
-            done : true
-        }, function(err, todo) {
+        Todo.findByIdAndUpdate(
+            req.params.todo_id,
+            { done : true },
+            function(err, todo) {
             if (err)
                 res.send(err);
 
