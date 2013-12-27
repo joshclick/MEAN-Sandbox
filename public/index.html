@@ -33,21 +33,23 @@
             </div>
         </div>
 
-        <div id="todo-list" class="row">
+        <div class="row">
             <div class="col-sm-4 col-sm-offset-4">
-                <div class="checkbox" ng-repeat="todo in todos | filter: { done: false }">
-                    <label>
-                        <input type="checkbox" ng-click="finishTodo(todo._id)"> {{ todo.text }}
-                    </label>
+                <div class="list-group">
+                    <div class="checkbox list-group-item" ng-repeat="todo in todos | filter: { done: false }">
+                        <label>
+                            <input type="checkbox" ng-click="finishTodo(todo._id)"> {{ todo.text }}
+                        </label>
+                    </div>
+                    <div class="checkbox list-group-item" ng-repeat="todo in todos | filter: { done: true }">
+                        <label>
+                            {{ todo.text }}
+                        </label>
+                    </div>
                 </div>
-                <div class="checkbox" ng-repeat="todo in todos | filter: { done: true }">
-                    <label>
-                        {{ todo.text }}
-                    </label>
-                </div>
-
             </div>
         </div>
+        
     </div>
 </body>
 </html>

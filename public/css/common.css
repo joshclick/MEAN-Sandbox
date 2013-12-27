@@ -2,6 +2,6 @@ body {
 	padding-top:50px;
 }
 
-#todo-list {
-	margin-bottom:30px;
+.list-group-item {
+	margin-bottom: 4px;
 }
