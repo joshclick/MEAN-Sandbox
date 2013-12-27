@@ -36,15 +36,12 @@
         <div id="todos" class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="list-group">
-                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | filter: { done: false }">
+                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | orderBy:'done' | orderBy:'finished':true">
                         <label>
-                            <input type="checkbox" ng-click="finishTodo(todo._id)"> {{ todo.text }}
-                        </label>
-                    </div>
-                    <div class="todo finished checkbox list-group-item" ng-repeat="todo in todos | filter: { done: true }">
-                        <label>
+                            <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
                             {{ todo.text }}
                         </label>
+                        <button class="destroy" ng-click="deleteTodo(todo._id)"></button>
                     </div>
                 </div>
             </div>
