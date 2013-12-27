@@ -25,17 +25,17 @@
     <div class="container">
         <div id="todo-form" class="row">
             <div class="col-sm-12">
-                <div class="input-group">
+                <form class="input-group">
                     <input type="text" class="form-control" placeholder="What do you need to do?" ng-model="formData.text">
                     <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="createTodo()">Add</button>
+                        <button class="btn btn-default" type="submit" ng-click="createTodo()">Add</button>
                     </span>
-                </div>
+                </form>
             </div>
         </div>
 
-        <div id="todos" class="row">
-            <div id="now" class="col-sm-6">
+        <div class="row">
+            <div id="now" class="col-sm-12">
                 <ul ui-sortable ng-model="todos" class="list-group">
                     <li class="todo list-group-item" ng-class="{'finished': todo.done}" ng-repeat="todo in todos | filter: { type: 'now' } | orderBy:'done' | orderBy:'finished':true">
                         <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
@@ -44,7 +44,9 @@
                     </li>
                 </ul>
             </div>
-            <div id="never" class="col-sm-6">
+        </div>
+        <div class="row">
+            <div id="never" class="col-sm-12">
                 <ul ui-sortable ng-model="todos" class="list-group">
                     <li class="todo list-group-item" ng-class="{'finished': todo.done}" ng-repeat="todo in todos | filter: { type: 'never' } | orderBy:'done' | orderBy:'finished':true">
                         <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">

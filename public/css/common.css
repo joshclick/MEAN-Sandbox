@@ -13,3 +13,7 @@ button.destroy {
     right: 10px;
     top: 12px;
 }
+
+#todo-form {
+    margin-bottom: 20px;
+}
