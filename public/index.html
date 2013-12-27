@@ -33,15 +33,15 @@
             </div>
         </div>
 
-        <div class="row">
+        <div id="todos" class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <div class="list-group">
-                    <div class="checkbox list-group-item" ng-repeat="todo in todos | filter: { done: false }">
+                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | filter: { done: false }">
                         <label>
                             <input type="checkbox" ng-click="finishTodo(todo._id)"> {{ todo.text }}
                         </label>
                     </div>
-                    <div class="checkbox list-group-item" ng-repeat="todo in todos | filter: { done: true }">
+                    <div class="todo finished checkbox list-group-item" ng-repeat="todo in todos | filter: { done: true }">
                         <label>
                             {{ todo.text }}
                         </label>

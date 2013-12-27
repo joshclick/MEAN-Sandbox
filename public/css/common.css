@@ -5,3 +5,10 @@ body {
 .list-group-item {
 	margin-bottom: 4px;
 }
+
+.todo.finished {
+	background-color: #FAFAFA;
+}
+.todo:hover {
+	background-color: #F4F4F4;
+}
