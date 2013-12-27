@@ -21,7 +21,13 @@ angular.module('todoController', [])
             }
         };
 
-        // delete a todo after checking it
+        $scope.finishTodo = function(id) {
+            Todos.finish(id)
+                .success(function(data) {
+                    $scope.todos = data;
+                })
+        };
+
         $scope.deleteTodo = function(id) {
             Todos.delete(id)
                 .success(function(data) {
