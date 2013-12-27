@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Todo', {
     text    : String,
-    type    : String,
+    type    : { type: String, default: 'never' },
     created : { type: Date, default: Date.now },
     finished: Date,
     done    : { type: Boolean, default: false }

@@ -22,7 +22,7 @@
 <body ng-controller="mainController">
     <div class="container">
         <div id="todo-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
+            <div class="col-sm-12">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="What do you need to do?" ng-model="formData.text">
                     <span class="input-group-btn">
@@ -33,9 +33,20 @@
         </div>
 
         <div id="todos" class="row">
-            <div class="col-sm-8 col-sm-offset-2">
+            <div id="now" class="col-sm-6">
                 <div class="list-group">
-                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | orderBy:'done' | orderBy:'finished':true">
+                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | filter: { type: 'now' } | orderBy:'done' | orderBy:'finished':true">
+                        <label>
+                            <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
+                            {{ todo.text }}
+                        </label>
+                        <button class="destroy" ng-click="deleteTodo(todo._id)"></button>
+                    </div>
+                </div>
+            </div>
+            <div id="never" class="col-sm-6">
+                <div class="list-group">
+                    <div class="todo checkbox list-group-item" ng-repeat="todo in todos | filter: { type: 'never' } | orderBy:'done' | orderBy:'finished':true">
                         <label>
                             <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
                             {{ todo.text }}
