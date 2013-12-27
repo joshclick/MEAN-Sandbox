@@ -1,5 +1,5 @@
 // load the todo model
-var Todo = require('./models/todo');
+var Todo = require('../app/models/todo');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {
@@ -73,11 +73,11 @@ module.exports = function(app) {
     });
 
     app.get('/todo', function(req, res) {
-        res.sendfile('./public/todo.html');
+        res.render('todo');
     });
 
-    app.get('/', function(req, res) {
-        res.sendfile('./public/index.html');
+    app.get('*', function(req, res) {
+        res.render('index');
     });
 
 

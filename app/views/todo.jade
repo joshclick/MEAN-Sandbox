@@ -1,0 +1,36 @@
+extends layouts/default
+
+block css
+  link(rel="stylesheet", href="css/todo.css")
+
+block js
+  script(src="js/controllers/todoController.js")
+  script(src="js/services/todos.js")
+  script(src="js/todoCore.js")
+
+block content
+  .container(ng-app="jcTodo")
+    #todo-form.row
+      .col-sm-12
+        form.input-group
+          input.form-control(type="text", placeholder="What do you need to do?", ng-model="formData.text")
+          span.input-group-btn
+            button.btn.btn-default(type="submit", ng-click="createTodo()") Add
+
+    .row
+      .col-sm-12
+        ul.list-group(ui-sortable ng-model="todos")
+          li.todo.list-group-item(ng-repeat="todo in todos | filter: { type: 'now' }")
+            input(type="checkbox", ng-click="finishTodo(todo._id)")
+            {{ todo.text }}
+            button.destroy(ng-click="deleteTodo(todo._id)")
+
+        ul.list-group(ui-sortable ng-model="todos")
+          li.todo.list-group-item(ng-repeat="todo in todos | filter: { type: 'never' }")
+            input(type="checkbox", ng-click="finishTodo(todo._id)")
+            {{ todo.text }}
+            button.destroy(ng-click="deleteTodo(todo._id)")
+        ul.list-group(ui-sortable ng-model="todos")
+          li.todo.finished.list-group-item(ng-repeat="todo in todos | filter: { type: 'done' }")
+            {{ todo.text }}
+            button.destroy(ng-click="deleteTodo(todo._id)")

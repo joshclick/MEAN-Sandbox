@@ -6,6 +6,7 @@
   "author"       : "Josh Click",
   "dependencies" : {
     "express"    : "latest",
-    "mongoose"   : "latest"
+    "mongoose"   : "latest",
+    "jade"		 : "latest"
   }
 }
