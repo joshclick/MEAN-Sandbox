@@ -1,0 +1,11 @@
+{
+  "name"         : "sandbox",
+  "version"      : "0.0.0",
+  "description"  : "A MEAN Sandbox",
+  "main"         : "server.js",
+  "author"       : "Josh Click",
+  "dependencies" : {
+    "express"    : "latest",
+    "mongoose"   : "latest"
+  }
+}
