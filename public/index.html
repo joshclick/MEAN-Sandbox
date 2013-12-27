@@ -35,21 +35,24 @@
         </div>
 
         <div class="row">
-            <div id="now" class="col-sm-12">
+            <div class="col-sm-12">
                 <ul ui-sortable ng-model="todos" class="list-group">
-                    <li class="todo list-group-item" ng-class="{'finished': todo.done}" ng-repeat="todo in todos | filter: { type: 'now' } | orderBy:'done' | orderBy:'finished':true">
-                        <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
+                    <li class="todo list-group-item" ng-repeat="todo in todos | filter: { type: 'now' }">
+                        <input type="checkbox" ng-click="finishTodo(todo._id)">
                         {{ todo.text }}
                         <button class="destroy" ng-click="deleteTodo(todo._id)"></button>
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="row">
-            <div id="never" class="col-sm-12">
+
                 <ul ui-sortable ng-model="todos" class="list-group">
-                    <li class="todo list-group-item" ng-class="{'finished': todo.done}" ng-repeat="todo in todos | filter: { type: 'never' } | orderBy:'done' | orderBy:'finished':true">
-                        <input type="checkbox" ng-click="finishTodo(todo._id)" ng-if="!todo.done">
+                    <li class="todo list-group-item" ng-repeat="todo in todos | filter: { type: 'never' }">
+                        <input type="checkbox" ng-click="finishTodo(todo._id)">
+                        {{ todo.text }}
+                        <button class="destroy" ng-click="deleteTodo(todo._id)"></button>
+                    </li>
+                </ul>
+                <ul ui-sortable ng-model="todos" class="list-group">
+                    <li class="todo finished list-group-item" ng-repeat="todo in todos | filter: { type: 'done' }">
                         {{ todo.text }}
                         <button class="destroy" ng-click="deleteTodo(todo._id)"></button>
                     </li>

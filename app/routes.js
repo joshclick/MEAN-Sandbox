@@ -41,7 +41,7 @@ module.exports = function(app) {
     app.post('/api/todos/fin/:todo_id', function(req, res) {
         Todo.findByIdAndUpdate(req.params.todo_id,
             {
-                done : true,
+                type : 'done',
                 finished: new Date()
             }, function(err, todo) {
             if (err)
