@@ -5,7 +5,9 @@ var mongoose = require('mongoose');                     // mongoose for mongodb
 
 // configuration =================
 
-mongoose.connect('mongodb://localhost/mean-sandbox');     // connect to mongoDB database on modulus.io
+// load the config
+var database = require('./config/database');
+mongoose.connect(database.url); 
 
 app.configure(function() {
     app.use(express.static(__dirname + '/public'));         // set the static files location /public/img will be /img for users
