@@ -1,4 +1,8 @@
 extends layouts/default
 
+block js
+  script(src="js/snow.js")
+
 block content
-  h1 read
+  canvas#siteCanvas(style="z-index:-1; position: absolute;")
+  a(href="/todo") todo
