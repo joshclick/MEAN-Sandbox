@@ -23,8 +23,7 @@ module.exports = function(app) {
 
         // create a todo, information comes from AJAX request from Angular
         Todo.create({
-            text : req.body.text,
-            done : false
+            text : req.body.text
         }, function(err, todo) {
             if (err)
                 res.send(err);
@@ -40,10 +39,11 @@ module.exports = function(app) {
     });
 
     app.post('/api/todos/fin/:todo_id', function(req, res) {
-        Todo.findByIdAndUpdate(
-            req.params.todo_id,
-            { done : true },
-            function(err, todo) {
+        Todo.findByIdAndUpdate(req.params.todo_id,
+            {
+                done : true,
+                finished: new Date()
+            }, function(err, todo) {
             if (err)
                 res.send(err);
 

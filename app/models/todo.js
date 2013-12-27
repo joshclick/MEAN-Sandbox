@@ -2,7 +2,9 @@
 var mongoose = require('mongoose');
 
 module.exports = mongoose.model('Todo', {
-    text : String,
-    type : String,
-    done : Boolean
+    text    : String,
+    type    : String,
+    created : { type: Date, default: Date.now },
+    finished: Date,
+    done    : { type: Boolean, default: false }
 });
