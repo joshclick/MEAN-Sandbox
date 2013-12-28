@@ -1,1 +1,1 @@
-Learning MEAN with [scotch.io's](http://scotch.io/) tutorials.
+Learning MEAN + Jade
