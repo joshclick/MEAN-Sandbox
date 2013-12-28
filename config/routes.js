@@ -72,13 +72,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get('/todo', function(req, res) {
-        res.render('todo');
-    });
-
-    app.get('*', function(req, res) {
-        res.render('index');
-    });
-
-
+    app.get('/', function(req, res) { res.render('index'); });
+    app.get('/todo', function(req, res) { res.render('todo'); });
+    app.get('/weebly', function(req, res) { res.render('weebly'); });
 };
