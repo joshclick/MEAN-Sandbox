@@ -2,6 +2,7 @@ extends layouts/default
 
 block js
   script(src="js/snow.js")
+  script(src="js/weather.js")
 
 block css
   style.
@@ -18,3 +19,13 @@ block content
     ul.list-group.text-center
       a.list-group-item(href="/todo") Todo (barebones) - Starting out with MEAN - 12/27/13
       a.list-group-item(href="#") MiniWeebly - A Trial project for Weebly - 10/31/13 (removed as requested by Weebly)
+      .list-group-item
+        h2 Rideable Hours
+        p Uses Wunderground API for hourly data and filters out bad times/conditions for riding - 12/30/13
+        table.table.table-striped(style="text-align: left;")
+          thead
+            tr
+              th Date
+              th Time
+              th Temp (feels like)
+          tbody
