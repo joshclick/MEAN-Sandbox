@@ -1,0 +1,3 @@
+[submodule "public/js/snow"]
+	path = public/js/snow
+	url = git@github.com:joshclick/SnowJS.git
