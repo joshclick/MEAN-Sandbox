@@ -2,7 +2,9 @@ extends layouts/default
 
 block js
   script(src="js/snow/snow.js")
-  script(src="js/weather.js")
+  script(src="js/weather/weather.js")
+  script.
+    hourlyWeather($('#weatherTable'), 08750);
 
 block css
   style.
@@ -23,10 +25,4 @@ block content
       .list-group-item
         h2 Rideable Hours
         p Uses Wunderground API for hourly data and filters out bad times/conditions for riding - 12/30/13
-        table.table.table-striped(style="text-align: left;")
-          thead
-            tr
-              th Date
-              th Time
-              th Temp (feels like)
-          tbody
+        table#weatherTable.table.table-striped(style="text-align: left;")

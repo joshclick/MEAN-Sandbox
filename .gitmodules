@@ -1,3 +1,6 @@
 [submodule "public/js/snow"]
 	path = public/js/snow
 	url = git@github.com:joshclick/SnowJS.git
+[submodule "public/js/weather"]
+	path = public/js/weather
+	url = git@github.com:joshclick/BikeWeatherJS.git
