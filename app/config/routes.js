@@ -1,20 +1,16 @@
-// load the todo model
+// load models
 var Todo = require('../app/models/todo');
+var StoryElem = require('../app/models/storyelem');
 
 // expose the routes to our app with module.exports
 module.exports = function(app) {
-    // -------- API -------- 
     // get all todos
     app.get('/api/todos', function(req, res) {
-
-        // use mongoose to get all todos in the database
         Todo.find(function(err, todos) {
-
-            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)
-                res.send(err)
+                res.send(err);
 
-            res.json(todos); // return all todos in JSON format
+            res.json(todos);
         });
     });
 
@@ -31,7 +27,7 @@ module.exports = function(app) {
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
@@ -50,10 +46,10 @@ module.exports = function(app) {
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
-        })
+        });
     });
 
     app.delete('/api/todos/del/:todo_id', function(req, res) {
@@ -66,7 +62,7 @@ module.exports = function(app) {
             // get and return all the todos after you create another
             Todo.find(function(err, todos) {
                 if (err)
-                    res.send(err)
+                    res.send(err);
                 res.json(todos);
             });
         });
@@ -74,4 +70,5 @@ module.exports = function(app) {
 
     app.get('/', function(req, res) { res.render('index'); });
     app.get('/todo', function(req, res) { res.render('todo'); });
+    app.get('/story', function(req, res) { res.render('story'); });
 };

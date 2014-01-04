@@ -3,14 +3,14 @@ var express  = require('express');
 var app      = express();                       // create our app w/ express
 var mongoose = require('mongoose');             // mongoose for mongodb
 var port     = 9076;
-var database = require('./config/database');    // load db config
+var database = require('./app/config/database');    // load db config
 
 // configuration =================
 mongoose.connect(database.url); 
 
 app.configure(function() {
     //Set views path, template engine and default layout
-    app.set('views', __dirname + '/app/views');
+    app.set('views', __dirname + '/public/views');
     app.set('view engine', 'jade');
 
     app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
@@ -20,7 +20,7 @@ app.configure(function() {
 });
 
 // load the routes
-require('./config/routes')(app);
+require('./app/config/routes')(app);
 
 // listen (start app with node server.js) ======================================
 app.listen(port);
